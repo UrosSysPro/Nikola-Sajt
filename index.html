@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onscroll="scroll()">
     <header>
         <div id="logoDiv">
             <span>Logo</span>
@@ -21,39 +21,36 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><button onclick="toggleMode()">Dark Mode</button></li>
             </ul>
         </nav>
 
     </header>
     <main>
-        <section>
-            <div class="slika">
-                <!-- <img src="https://source.unsplash.com/random/300x300" alt="random slika"> -->
-                <img src="slika.jpg" alt="random slika">
-            </div>
-            <div class="tekst">
-                <h1>Ovo je naslov</h1>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br>
-                    Eligendi doloremque numquam amet! Reiciendis corporis laboriosam <br>
-                    quas similique perferendis aliquid maiores?
-                </p>
-            </div>
+        <div class="slika" style="grid-area: slika1;">
+            <!-- <img src="https://source.unsplash.com/random/300x300" alt="random slika"> -->
+            <img src="slika.jpg" alt="random slika">
+        </div>
+        <section style="grid-area: section1;">
+            <h1>Ovo je naslov</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br>
+                Eligendi doloremque numquam amet! Reiciendis corporis laboriosam <br>
+                quas similique perferendis aliquid maiores?
+            </p>
         </section>
-
-        <section>
-            <div class="tekst">
-                <h1>Ovo je naslov</h1>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br>
-                    Eligendi doloremque numquam amet! Reiciendis corporis laboriosam <br>
-                    quas similique perferendis aliquid maiores?
-                </p>
-            </div>
-            <div class="slika">
-                <!-- <img src="https://source.unsplash.com/random/300x300" alt="random slika"> -->
-                <img src="slika2.jpg" alt="random slika">
-            </div>
+        <div class="slika" style="grid-area: slika2;">
+            <!-- <img src="https://source.unsplash.com/random/300x300" alt="random slika"> -->
+            <img src="slika2.jpg" alt="random slika">
+        </div>
+        <section style="grid-area: section2;">
+            <h1>Ovo je naslov</h1>
+            <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br>
+                Eligendi doloremque numquam amet! Reiciendis corporis laboriosam <br>
+                quas similique perferendis aliquid maiores?
+            </p>
+            <button class="sectionBtn">See more <span>></span></button>
         </section>
     </main>
     <footer>
@@ -65,6 +62,12 @@
             let nav=document.getElementsByTagName("nav")[0];
             nav.classList.toggle("showNavBar");
         }
+        function scroll(){
+            let offset=window.pageYOffset;
+            let header=document.getElementsByTagName("header")[0];
+            header.style.transform="translateY("+offset+"px)";
+        }
+
     </script>
 </body>
 </html>

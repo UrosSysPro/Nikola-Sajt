@@ -8,14 +8,19 @@ header{
     position: relative;
     width: 100%;
     height: 55px;
-    
+    /* transition: 300ms; */
 }
 #logoDiv{
-    background-color: darkslategray;
+    /* margin-top: 1em; */
+    background-color: white;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+}
+#logoDiv span{
+    font-weight: bolder;
+    color: indigo;
 }
 nav{
     position: absolute;
@@ -35,18 +40,19 @@ header span{
     padding-left: 2em;
 }
 header * {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 #menuBtn{
     display: none;
     width: 3em;
     height: 3em;
-    background-color: rgb(28, 44, 44);
+    background-color: indigo;
     margin-right: 1em;
     border: none;
     border-radius: .7em;
     position: relative;
+    cursor: pointer;
 }
 #menuBtn img{
     width: 2em;
@@ -57,14 +63,14 @@ header * {
     left: 50%;
 
 }
-main>section{
-    height: 400px;
-    background-color: crimson;
-    display: flex;
+main{
+    display: grid;
+    grid-template-areas: "slika1 section1"
+                         "section2 slika2";
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-rows: 500px; */
 }
-.slika, .tekst{
-    width: 50%;
-    height: 100%;
+.slika{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -74,10 +80,22 @@ main>section{
     height: 80%;
     object-fit: cover;
 }
-.tekst{
-    padding:5%;
+main section{
+    padding-left:15%;
+    padding-right:15%;
+    display: flex;
+    justify-content: center;
     align-items: flex-start;
     flex-direction: column;   
+}
+.sectionBtn{
+    background-color: indigo;
+    padding: .5em 1em .5em 1em;
+    font-size: 1.2em;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    margin-top: 1em;
 }
 footer{
     height: 100px;
@@ -85,14 +103,13 @@ footer{
 }
 
 @media(max-width: 900px) {
-    main>section{
-        background-color: dodgerblue;
-        flex-direction: column;
-        height: unset;
+
+    main{
+        grid-template-columns: 1fr;
+        grid-template-areas: "slika1" "section1" "slika2" "section2";
+        padding-bottom: 100px;
     }
-    .slika,.tekst{
-        width: 100%;
-    }
+
     .slika img{
         width: 90%;
         height: 90%;
@@ -118,7 +135,7 @@ footer{
         top: unset;
         bottom: 0;
         width: 100%;
-        background-color: darkslategray;
+        background-color: white;
     }
     .showNavBar{
         transform: translateY(100%);
